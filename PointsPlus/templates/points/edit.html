@@ -1,0 +1,12 @@
+<h1>{{ user.username }}</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'points:submit' user.id %}" method="post">
+{% csrf_token %} <!--使用这个模板标签，Django处理跨域请求伪造的问题-->
+<label for="value">积分</label><br />
+<input type="number" name="value" id="value" /><br />
+<label for="value">原因</label><br />
+<input type="text" name="deriver" id="deriver" /><br />
+<input type="submit" value="提交" />
+</form>

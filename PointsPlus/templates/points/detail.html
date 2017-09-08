@@ -1,0 +1,6 @@
+<h1>{{ user.username }}</h1>
+<ul>
+{% for point in user.points_set.all %}
+    <li>{{ point.value }}:{{point.deriver}}</li>
+{% endfor %}
+</ul>
